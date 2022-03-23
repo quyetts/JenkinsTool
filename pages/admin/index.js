@@ -44,7 +44,7 @@ const Admin = (props) => {
         <title>Admin | Jenkins Tools</title>
       </Head>
       {
-        (props.session?.user?.email === "smthanh@gmail.com" || props.session?.user?.email === "hoangntvn@gmail.com") ?
+        (props.session?.user?.email === "quyetts@gmail.com" || props.session?.user?.email === "hoangntvn@gmail.com") ?
           <div className="max-w-7xl mx-auto py-12 flex flex-col items-center">
             <button
               onClick={readData} type="submit"
@@ -98,7 +98,7 @@ export default Admin;
 export async function getServerSideProps(context) {
   const session = await getSession({ req: context.req });
 
-  if (session?.user?.email === "smthanh@gmail.com" || session?.user?.email === "hoangntvn@gmail.com") {
+  if (session?.user?.email === "quyetts@gmail.com" || session?.user?.email === "hoangntvn@gmail.com") {
     try {
       initFirebase();
       const snapshot = await firebase.firestore().collection('ipCollection').get();
