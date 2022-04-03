@@ -38,6 +38,13 @@ const Admin = (props) => {
     alert("Deleted");
   }
 
+  const toDate = (unixTimestamp) => {
+    const milliseconds = unixTimestamp * 1000
+    const dateObject = new Date(milliseconds)
+    const humanDateFormat = dateObject.toLocaleString()
+    return humanDateFormat
+  }
+
   return (
     <>
       <Head>
@@ -73,7 +80,7 @@ const Admin = (props) => {
                             <td className="border px-4 py-2 font-medium">{idx + 1}</td>
                             <td className="border px-4 py-2 font-medium">{item.email}</td>
                             <td className="border px-4 py-2 font-medium">{item.ip}</td>
-                            <td className="border px-4 py-2 font-medium">{item.last_updated}</td>
+                            <td className="border px-4 py-2 font-medium">{toDate(item.last_updated)}</td>
                             <td className="border px-4 py-2 font-medium">
                               <button onClick={() => handleDelete(item.email)}>Delete</button>
                             </td>
